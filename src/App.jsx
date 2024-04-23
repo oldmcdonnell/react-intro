@@ -1,3 +1,5 @@
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom"
 import { useState } from "react";
 
@@ -22,20 +24,33 @@ const CounterButton = () => {
   let colors = ['red', 'blue', 'green', 'pink', 'orange', 'purple', 'yellow', 'black', 'red', 'blue', 'green', 'pink', 'orange', 'purple', 'yellow', 'black',]
   console.log(count)
   const handleClick = () => {
-    const newCount = count+1
-    setCount(newCount) 
+      const newCount = count+1
+      if (newCount>10){
+        setCount(newCount) 
+      } else {
+        <dev>too much</dev>
+        setCount(newCount) 
+      }
+
   }
   return(
     <button onClick={handleClick} style={{color: colors[count]}} className="dark:color-white rounded-lg bg=purple-700 px-2 py-1 fous:ring active:bg-purple-600">click count: {count}</button>
   )
 }
 
+/*-
 const Navbar = () => {
-  <div className="container-fluid">
-  <a className="navbar-brand"></a>
-  <button className="navbar-toggler" type="button" data-bs-toggle="collapse" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation"></button>
-</div>
+<Navbar bg="dark" data-bs-theme="dark">
+  <Container>
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="me-auto">
+      <Link className="text-light" to='/about'>About</Link>
+      <Link className="text-light" to='/contacts'>contacts</Link>
+    </Nav>
+  </Container>
+</Navbar>
 }
+-*/
 
 function App() {
   return (
